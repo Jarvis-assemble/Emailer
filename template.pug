@@ -1,0 +1,38 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    title Node.js Email Example
+    style.
+      body {
+        font-family: 'Arial', sans-serif;
+        background-color: #f4f4f4;
+      }
+      .container {
+        padding: 20px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+      h1 {
+        color: #333333;
+        margin-bottom: 20px;
+      }
+      p {
+        color: #555555;
+        margin-bottom: 20px;
+      }
+
+  body
+    div(class="container")
+      h1 #{title}
+      p Hello #{receiver.name}!
+      p Regex 
+      ul
+        li 
+           a(href="https://overapi.com/regex", target="_blank" ) Regex Cheatsheet
+        li  
+           a(href="https://www.geeksforgeeks.org/find-all-the-patterns-of-101-in-a-given-string-using-regular-expression/", target="_blank" ) Pattern matching
+        li 
+           a(href="https://www.geeksforgeeks.org/regex-regular-expression-in-c/", target="_blank" ) Regex in C
+      p #{text}
+      img(src="https://www.sender.net/wp-content/uploads/2023/05/b0150-Thank-you-email-small-1024x658.webp",width="300",height="150")

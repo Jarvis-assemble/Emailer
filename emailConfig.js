@@ -1,8 +1,9 @@
-
+// include pug module
+const pug = require("pug");
 const nodemailer = require("nodemailer");
 require("dotenv").config();
 
-async function main() {
+async function main(emailData, pugTemplatePath) {
   
   let transporter = nodemailer.createTransport({
     service: "gmail",
@@ -13,7 +14,11 @@ async function main() {
     },
   });
 
-
+  // Compile a Pug template from a file to a function
+  const compiledFunction = pug.compileFile(pugTemplatePath);
+  // Render the function
+  const emailHTML = compiledFunction(emailData);
+/*
   let info = await transporter.sendMail({
     from: process.env.user_email,
     to: "jaithri21@gmail.com",
@@ -26,6 +31,14 @@ async function main() {
         path: '/home/jxk01/Web Dev/Email/images/roja.jpeg'
       }
     ]
+  });
+*/
+ let info = await transporter.sendMail({
+    from: process.env.user_email,
+    to: emailData.receiver.email,
+    subject: emailData.subject,
+    // send the email as an html
+    html: emailHTML,
   });
 
   return info;
